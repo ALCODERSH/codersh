@@ -3,6 +3,162 @@
 {% block title %}
 rogeranthonie
 {% endblock %}
+
 {% block content %}
-<h1>Editor page</h1>
+
+{% include "main/components/navbar.html" %}
+
+{% include "main/components/editornav.html" %}
+
+
+
+<div>
+    <div class="content"
+        style="height: 88vh; width: 100%; display: flex; justify-content: center; align-items: center;">
+        <div class="s1" style="background-color: #333; height: 100%;">
+            <div class="prompt">
+                <div class="container" style="overflow-y: scroll; height: 100%;">
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                    <p>The prompt goes here</p>
+                </div>
+            </div>
+            <div id="scratchpad" style="height: 100%;">this is the scratchpad</div>
+        </div>
+        <div class="s2" style="background-color: #333; height: 100%;">
+            <div class="editor_layout" style="height: 100%;">
+                <div id="code_editor" style="height: 100%">This is where you write code</div>
+            </div>
+            <div class="output_layout">
+                This is where you give custom inputs :)
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.6.2/split.min.js"
+    integrity="sha512-to2k78YjoNUq8+hnJS8AwFg/nrLRFLdYYalb18SlcsFRXavCOTfBF3lNyplKkLJeB8YjKVTb1FPHGSy9sXfSdg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    Split(['.s1', '.s2'], {
+        gutterSize: 4,
+        sizes: [40, 60]
+    })
+
+    Split(['.prompt', '#scratchpad'], {
+        gutterSize: 5,
+        sizes: [70, 30],
+        direction: "vertical"
+    })
+
+    Split(['.editor_layout', '.output_layout'], {
+        gutterSize: 5,
+        sizes: [70, 30],
+        direction: "vertical"
+    })
+</script>
+
+
+<style>
+    html,
+    body {
+        height: 100vh;
+    }
+
+    .gutter {
+        height: 100%;
+        background: rgb(30, 25, 62);
+    }
+
+    .gutter:hover {
+        background-color: blueviolet;
+    }
+
+    .gutter-horizontal {
+        cursor: w-resize;
+    }
+
+    .gutter-vertical {
+        cursor: s-resize;
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.18.0/ace.js"></script>
+
+<script>
+    scratchpad = ace.edit("scratchpad")
+    scratchpad.setTheme("ace/theme/monokai");
+    scratchpad.setOptions({
+        fontSize: 18
+    })
+
+
+    code_editor = ace.edit("code_editor")
+    code_editor.setTheme("ace/theme/monokai")
+    scratchpad.setOptions({
+        fontSize: 18
+    })
+
+    var languageBox = document.getElementById("language_bx")
+    var fontBox = document.getElementById("font_bx")
+    var fontStyleBox = document.getElementById("font_style_bx")
+    var themeBox = document.getElementById("theme_bx")
+
+    function setLanguage() {
+        var selectedValue = languageBox.options[languageBox.selectedIndex].value
+        code_editor.session.setMode(selectedValue)
+    }
+
+    function setFontSize() {
+        var selectedValue = fontBox.options[fontBox.selectedIndex].value
+        code_editor.setOptions({
+            fontSize: "22" * selectedValue
+        })
+
+    }
+
+    function setFont() {
+        var selectedValue = fontStyleBox.options[fontStyleBox.selectedIndex].value
+        code_editor.setOptions(
+            {
+                fontFamily: selectedValue
+            }
+        )
+    }
+
+    function setTheme() {
+        var selectedValue = themeBox.options[themeBox.selectedIndex].value
+        code_editor.setTheme(selectedValue)
+    }
+
+    window.addEventListener("DOMContentLoaded", function (event) {
+        setFontSize()
+        setLanguage()
+        setFont()
+        setFont()
+
+    });
+
+    window.on
+
+</script>
+
+
+{% endblock %}
+
+{% block css %}
+<link
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Fira+Mono&family=Inconsolata&family=Nova+Mono&family=Red+Hat+Mono&family=Roboto:wght@300&family=Spline+Sans+Mono&family=Ubuntu+Mono&display=swap"
+    rel="stylesheet">
+</head>
 {% endblock %}

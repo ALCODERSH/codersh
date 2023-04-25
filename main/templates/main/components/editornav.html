@@ -1,0 +1,36 @@
+<div class="nav">
+
+    <label style="margin-left: 20px; margin-right: 10px;">font size:</label>
+
+    <select id="font_bx" class="btn btn-sm" style="background-color: #181120" onchange="setFontSize()">
+        <option value="0.5">0.5x</option>
+        <option value="0.75">0.75x</option>
+        <option value="1" selected>1x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+        <option value="2">2x</option>
+    </select>
+
+    <label style="margin-left: 20px; margin-right: 10px;">font:</label>
+    <select id="font_style_bx" class="btn btn-sm" style="background-color: #181120" onchange="setFont()">
+        {% for font in fonts %}
+        <option value="{{ font.title }}" {% if forloop.counter0 == 0 %}selected{% endif %}>{{ font.title }}</option>
+        {% endfor %}
+    </select>
+
+    <label style="margin-left: 20px; margin-right: 10px;">Language: </label>
+    <select id="language_bx" class="btn btn-sm" style="background-color: #181120" onchange="setLanguage()">
+
+        {% for language in languages %}
+        <option value="{{ language.ace_mode }}">{{ language.title }}</option>
+        {% endfor %}
+    </select>
+
+    <label style="margin-left: 20px; margin-right: 10px;">Theme: </label>
+    <select id="theme_bx" class="btn btn-sm" style="background-color: #181120" onchange="setTheme()">
+        {% for theme in themes %}
+        <option value="{{ theme.ace_theme }}">{{ theme.title }}</option>
+        {% endfor %}
+    </select>
+
+</div>
