@@ -9,4 +9,8 @@ def editor_page(response):
     languages = Language.objects.all()
     themes = AceTheme.objects.all()
     fonts = AceFont.objects.all()
-    return render (response, 'main/pages/editor.html', {"languages":languages, "themes": themes, "fonts": fonts})
+    prompt = """
+  
+
+    """
+    return render (response, 'main/pages/editor.html', {"languages":languages, "themes": themes, "fonts": fonts, "prompt": prompt})
