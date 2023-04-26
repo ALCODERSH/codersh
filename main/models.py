@@ -37,3 +37,5 @@ class Question(models.Model):
     prompt = models.TextField(null=False, blank=False)
     input = models.TextField(null=False, blank=False)
     
+    def __str__(self):
+        return str(self.id)
