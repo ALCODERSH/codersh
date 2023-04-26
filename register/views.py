@@ -12,4 +12,4 @@ def signup_page(response):
             return redirect("")
     else:        
         form = UserCreationForm()
-    return render(response, "register/register.html", {"form":form})
+    return render(response, "register/pages/signup.html", {"form":form})
