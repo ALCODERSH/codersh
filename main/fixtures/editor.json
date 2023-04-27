@@ -45,42 +45,48 @@
         "pk": 1,
         "model": "main.AceTheme",
         "fields": {
-            "title": "monokai"
+            "title": "monokai",
+            "ace_theme": "ace/theme/monokai"
         }
     },
     {
         "pk": 2,
         "model": "main.AceTheme",
         "fields": {
-            "title": "chrome"
+            "title": "chrome",
+            "ace_theme": "ace/theme/chrome"
         }
     },
     {
         "pk": 3,
         "model": "main.AceTheme",
         "fields": {
-            "title": "ambiance"
+            "title": "ambiance",
+            "ace_theme": "ace/theme/ambiance"
         }
     },
     {
         "pk": 4,
         "model": "main.AceTheme",
         "fields": {
-            "title": "github"
+            "title": "github",
+            "ace_theme": "ace/theme/github"
         }
     },
     {
         "pk": 5,
         "model": "main.AceTheme",
         "fields": {
-            "title": "dracula"
+            "title": "dracula",
+            "ace_theme": "ace/theme/dracula"
         }
     },
     {
         "pk": 6,
         "model": "main.AceTheme",
         "fields": {
-            "title": "xcode"
+            "title": "xcode",
+            "ace_theme": "ace/theme/xcode"
         }
     },
     {
