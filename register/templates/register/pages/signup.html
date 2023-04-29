@@ -14,7 +14,7 @@
             SIGN UP
         </div>
         <div class="card-body">
-            <form class="row g-3">
+            <form method="post" class="row g-3">
                 <!-- <div class="col-md-6">
                         <input type="type" class="form-control" id="fname" placeholder="enter your first name" required>
                     </div>
@@ -54,6 +54,7 @@
                             Up</button>
                     </div> -->
                 <div class="container">
+                    {% csrf_token %}
                     {{ form | crispy}}
                     <input class="btn btn-sm btn-primary" type="submit" value="Register">
                 </div>
